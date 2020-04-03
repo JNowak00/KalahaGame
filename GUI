@@ -42,11 +42,12 @@ public class GUI extends Application {
            System.out.println("Something went wrong");
        }
         Play.setOnAction(e->house.Points());
-        house.PickBlueHouse6.setOnAction(e->{
-                for(int x = 0; x<con.BluePoints.get(0);x++){
+         house.PickBlueHouse6.setOnAction(e->{
+            for(int x = 0; x<con.BluePoints.get(0);x++){
                     con.BluePoints.set(x+1,con.BluePoints.get(x+1)+1);
-                    house.labels.get(x+1).setText(String.valueOf(con.BluePoints.get(x+1)));
-            }
+                    house.labels.get(x+1).setText(String.valueOf(con.BluePoints.get(x+1)));}
+            con.BluePoints.set(0,0);
+            house.labels.get(0).setText(String.valueOf(con.BluePoints.get(0)));
 
 
 
