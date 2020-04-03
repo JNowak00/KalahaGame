@@ -1,3 +1,4 @@
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,7 +20,8 @@ public class GUI extends Application {
         Controller con = new Controller();
         Houses house = new Houses();
        // house.Points();
-       con.FillArray();
+     //  con.RedPoints();
+       con.BluePoints();
         Pane pane = new Pane();
         Scene scene = new Scene(pane, 700,350);
         Play.setLayoutY(scene.getHeight()/2);
@@ -40,13 +42,21 @@ public class GUI extends Application {
            System.out.println("Something went wrong");
        }
         Play.setOnAction(e->house.Points());
-        house.PickBlueHouse1.setOnAction(e->{
-            for(int x = 0; x<con.values.get(0);x++){
+        house.PickBlueHouse6.setOnAction(e->{
+                for(int x = 0; x<con.BluePoints.get(0);x++){
+                    con.BluePoints.set(x+1,con.BluePoints.get(x+1)+1);
+                    house.labels.get(x+1).setText(String.valueOf(con.BluePoints.get(x+1)));
+            }
+
+
+
+
+        /*    for(int x = 0; x<con.values.get(0);x++){
                 con.increaseByOnePoint(house.labels.get(x+1),x+1,con.values.get(x+1));
             }
             con.ToZero(0);
             System.out.println(con.values.get(0));
-            /*System.out.println(con.values.get(0));
+            *//*System.out.println(con.values.get(0));
             con.FillArray().set(0,5);
             System.out.println(con.values.get(0));
             house.BlueHouse1Value.setText(String.valueOf(con.values.get(0)));*/
