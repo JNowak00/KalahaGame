@@ -1,4 +1,11 @@
 
+import javafx.animation.AnimationTimer;
+import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
+
+
+import java.util.ArrayList;
+
 
 public class Controller {
     Houses houses = new Houses();
@@ -6,37 +13,33 @@ public class Controller {
     boolean P1turn = true;
     boolean MoveInProgres = false;
     boolean opposite_empty = false;
-    ArrayList<Integer> values = new ArrayList<>(14);
+    ArrayList<Integer> BluePoints = new ArrayList<>(7);
+    ArrayList<Integer> RedPoints = new ArrayList<>(7);
 
-    public ArrayList FillArray() {
-        values.add(0,6);
-        values.add(1,6);
-        values.add(2,6);
-        values.add(3,6);
-        values.add(4,6);
-        values.add(5,6);
-       //base
-        values.add(6,0);
-        values.add(7,6);
-        values.add(8,6);
-        values.add(9,6);
-        values.add(10,6);
-        values.add(11,6);
+    public ArrayList BluePoints() {
+        BluePoints.add(0,6);
+        BluePoints.add(1,6);
+        BluePoints.add(2,6);
+        BluePoints.add(3,6);
+        BluePoints.add(4,6);
+        BluePoints.add(5,6);
+        BluePoints.add(6,0);
+        //base
+        return BluePoints;}
 
-        values.add(12, null);
-        values.add(13, null);
-        return values; }
-
-    void ToZero(int index){
-        opposite_empty = true;
-       values.set(index,0);
-       houses.BlueHouse1Value.setText(String.valueOf(values.get(0)));
+      /*  public ArrayList RedPoints() {
 
     }
+    void ToZero(int index){
+        opposite_empty = true;
+        values.set(index,0);
+        houses.BlueHouse1Value.setText(String.valueOf(values.get(0)));
+*/
+
 
     void increaseByOnePoint(Label label, int index, int point){
 
-        values.set(index,point+1);
-        label.setText(String.valueOf(values.get(index)));
-        }
+       // values.set(index,point+1);
+       // label.setText(String.valueOf(values.get(index)));
     }
+}
