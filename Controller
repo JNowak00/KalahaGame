@@ -1,0 +1,38 @@
+
+import javafx.animation.AnimationTimer;
+import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
+
+
+import java.util.ArrayList;
+
+
+public class Controller {
+    GUI gui = new GUI();
+    boolean GameIsOver = false;
+    boolean P1turn = true;
+    boolean MoveInProgres = false;
+    boolean opposite_empty = false;
+
+
+    public ArrayList FillArray() {
+        ArrayList<Integer> values = new ArrayList<>();
+        for (int i = 0; i < 12; i++) {
+            values.add(i, 6);
+        }
+        values.add(12, 0);
+        values.add(13, 0);
+        return values;
+    }
+
+    void ToZero(int index){
+        opposite_empty = true;
+        FillArray().set(index,0);
+
+    }
+
+    void increaseByOnePoint(Label label, int index, int point){
+        FillArray().set(index,point+1);
+        label.setText(String.valueOf(FillArray().get(index)));
+    }
+}
