@@ -4,6 +4,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 
 public class GUI extends Application {
 
@@ -17,25 +19,18 @@ public class GUI extends Application {
         Controller con = new Controller();
         Houses house = new Houses();
        // house.Points();
-
-        con.FillArray();
-
-
+       con.FillArray();
         Pane pane = new Pane();
         Scene scene = new Scene(pane, 700,350);
-
-
         Play.setLayoutY(scene.getHeight()/2);
         Play.setLayoutX(scene.getWidth()/2);
         Play.setText("PLAY");
-
-
-      try{
+        try{
           pane.getChildren().addAll(house.CreateHouses());
              pane.getChildren().addAll(house.SetLabels());
              pane.getChildren().addAll(house.setButtons());
              pane.getChildren().add(Play);
-
+           // house.PickBlueHouse1.setOnAction(e->{ con.increaseByOnePoint(house.BlueHouse1Value,0,values.get(0));});
             pStage.setTitle("Kalaha Game");
             pStage.setScene(scene);
             pStage.setResizable(false);
@@ -46,14 +41,19 @@ public class GUI extends Application {
        }
         Play.setOnAction(e->house.Points());
         house.PickBlueHouse1.setOnAction(e->{
+            for(int x = 0; x<con.values.get(0);x++){
+                con.increaseByOnePoint(house.labels.get(x+1),x+1,con.values.get(x+1));
+            }
             con.ToZero(0);
-            System.out.println(con.FillArray().get(0));
+            System.out.println(con.values.get(0));
+            /*System.out.println(con.values.get(0));
+            con.FillArray().set(0,5);
+            System.out.println(con.values.get(0));
+            house.BlueHouse1Value.setText(String.valueOf(con.values.get(0)));*/
+        });
             /*con.ToZero((Integer)con.FillArray().get(0));
             con.increaseByOnePoint(house.BlueHouse1Value,1,(Integer)con.FillArray().get(1));*/
-        });
-
-    }
-
+        }
 
     public static void main(String[] args) { launch(args); }
 }
