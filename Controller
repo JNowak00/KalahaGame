@@ -1,38 +1,42 @@
 
-import javafx.animation.AnimationTimer;
-import javafx.scene.control.Label;
-import javafx.scene.shape.Rectangle;
-
-
-import java.util.ArrayList;
-
 
 public class Controller {
-    GUI gui = new GUI();
+    Houses houses = new Houses();
     boolean GameIsOver = false;
     boolean P1turn = true;
     boolean MoveInProgres = false;
     boolean opposite_empty = false;
-
+    ArrayList<Integer> values = new ArrayList<>(14);
 
     public ArrayList FillArray() {
-        ArrayList<Integer> values = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
-            values.add(i, 6);
-        }
-        values.add(12, 0);
-        values.add(13, 0);
-        return values;
-    }
+        values.add(0,6);
+        values.add(1,6);
+        values.add(2,6);
+        values.add(3,6);
+        values.add(4,6);
+        values.add(5,6);
+       //base
+        values.add(6,0);
+        values.add(7,6);
+        values.add(8,6);
+        values.add(9,6);
+        values.add(10,6);
+        values.add(11,6);
+
+        values.add(12, null);
+        values.add(13, null);
+        return values; }
 
     void ToZero(int index){
         opposite_empty = true;
-        FillArray().set(index,0);
+       values.set(index,0);
+       houses.BlueHouse1Value.setText(String.valueOf(values.get(0)));
 
     }
 
     void increaseByOnePoint(Label label, int index, int point){
-        FillArray().set(index,point+1);
-        label.setText(String.valueOf(FillArray().get(index)));
+
+        values.set(index,point+1);
+        label.setText(String.valueOf(values.get(index)));
+        }
     }
-}
