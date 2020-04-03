@@ -1,6 +1,7 @@
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -9,62 +10,102 @@ import java.util.ArrayList;
 
 
 public class GUI extends Application {
-
-
     Button Play = new Button();
-
-
-
     @Override
     public void start(Stage pStage) throws Exception {
         Controller con = new Controller();
         Houses house = new Houses();
-       // house.Points();
-     //  con.RedPoints();
-       con.BluePoints();
+
+        con.Points();
         Pane pane = new Pane();
-        Scene scene = new Scene(pane, 700,350);
-        Play.setLayoutY(scene.getHeight()/2);
-        Play.setLayoutX(scene.getWidth()/2);
+        Scene scene = new Scene(pane, 700, 350);
+        Play.setLayoutY(scene.getHeight() / 2);
+        Play.setLayoutX(scene.getWidth() / 2);
         Play.setText("PLAY");
-        try{
-          pane.getChildren().addAll(house.CreateHouses());
-             pane.getChildren().addAll(house.SetLabels());
-             pane.getChildren().addAll(house.setButtons());
-             pane.getChildren().add(Play);
-           // house.PickBlueHouse1.setOnAction(e->{ con.increaseByOnePoint(house.BlueHouse1Value,0,values.get(0));});
+        try {
+            pane.getChildren().addAll(house.CreateHouses());
+            pane.getChildren().addAll(house.SetLabels());
+            pane.getChildren().addAll(house.setButtons());
+            pane.getChildren().add(Play);
+            // house.PickBlueHouse1.setOnAction(e->{ con.increaseByOnePoint(house.BlueHouse1Value,0,values.get(0));});
             pStage.setTitle("Kalaha Game");
             pStage.setScene(scene);
             pStage.setResizable(false);
             pStage.show();
 
-       }catch (Exception e){
-           System.out.println("Something went wrong");
-       }
-        Play.setOnAction(e->house.Points());
-         house.PickBlueHouse6.setOnAction(e->{
-            for(int x = 0; x<con.BluePoints.get(0);x++){
-                    con.BluePoints.set(x+1,con.BluePoints.get(x+1)+1);
-                    house.labels.get(x+1).setText(String.valueOf(con.BluePoints.get(x+1)));}
-            con.BluePoints.set(0,0);
-            house.labels.get(0).setText(String.valueOf(con.BluePoints.get(0)));
-
-
-
-
-        /*    for(int x = 0; x<con.values.get(0);x++){
-                con.increaseByOnePoint(house.labels.get(x+1),x+1,con.values.get(x+1));
-            }
-            con.ToZero(0);
-            System.out.println(con.values.get(0));
-            *//*System.out.println(con.values.get(0));
-            con.FillArray().set(0,5);
-            System.out.println(con.values.get(0));
-            house.BlueHouse1Value.setText(String.valueOf(con.values.get(0)));*/
-        });
-            /*con.ToZero((Integer)con.FillArray().get(0));
-            con.increaseByOnePoint(house.BlueHouse1Value,1,(Integer)con.FillArray().get(1));*/
+        } catch (Exception e) {
+            System.out.println("Something went wrong");
         }
+
+        Play.setOnAction(e ->{
+            house.BlueHouse6Value.setText(String.valueOf(con.GetPoint(0)));
+            house.BlueHouse5Value.setText(String.valueOf(con.GetPoint(1)));
+            house.BlueHouse4Value.setText(String.valueOf(con.GetPoint(2)));
+            house.BlueHouse3Value.setText(String.valueOf(con.GetPoint(3)));
+            house.BlueHouse2Value.setText(String.valueOf(con.GetPoint(4)));
+            house.BlueHouse1Value.setText(String.valueOf(con.GetPoint(5)));
+            house.BlueBaseValue.setText(String.valueOf(con.GetPoint(6)));
+            house.RedHouse1Value.setText(String.valueOf(con.GetPoint(7)));
+            house.RedHouse2Value.setText(String.valueOf(con.GetPoint(8)));
+            house.RedHouse3Value.setText(String.valueOf(con.GetPoint(9)));
+            house.RedHouse4Value.setText(String.valueOf(con.GetPoint(10)));
+            house.RedHouse5Value.setText(String.valueOf(con.GetPoint(11)));
+            house.RedHouse6Value.setText(String.valueOf(con.GetPoint(12)));
+            house.RedBaseValue.setText(String.valueOf(con.GetPoint(13)));
+        });
+
+        /*
+        ACTIONS FOR BUTTONS
+         */
+        house.PickBlueHouse6.setOnAction(e -> {
+            for(int i = 0; i<con.Points.get(0)+1;i++){
+                con.Points.set(i, con.Points.get(i) + 1);
+                house.labels.get(i).setText(String.valueOf(con.Points.get(i)));}
+            con.setPoint(0,0);
+            house.BlueHouse6Value.setText(String.valueOf(con.Points.get(0)));
+                });
+                house.PickBlueHouse5.setOnAction(e ->{
+                    for(int i = 1; i<con.Points.get(1)+1;i++){
+                        con.Points.set(i+1, con.Points.get(i+1) + 1);
+                        house.labels.get(i+1).setText(String.valueOf(con.Points.get(i+1)));}
+                            con.setPoint(1,0);
+                            house.BlueHouse5Value.setText(String.valueOf(con.Points.get(1)));
+                });
+                house.PickBlueHouse4.setOnAction(e->{
+                    for(int i = 1; i<con.Points.get(2)+1;i++){
+                        con.Points.set(i+2, con.Points.get(i+2) + 1);
+                        house.labels.get(i+2).setText(String.valueOf(con.Points.get(i+2))); }
+                    con.setPoint(2,0);
+                    house.BlueHouse4Value.setText(String.valueOf(con.Points.get(2)));
+
+                });
+
+
+
+
+
+
+
+
+            //for (int x = 0; x < con.Points.get(0); x++) {
+            /* con.BluePoints.set(x + 1, con.BluePoints.get(x + 1) + 1);
+                house.labels.get(x + 1).setText(String.valueOf(con.BluePoints.get(x + 1)));
+            }
+            con.BluePoints.set(0, 0);
+            house.labels.get(0).setText(String.valueOf(con.BluePoints.get(0)));*/
+        /*house.PickBlueHouse5.setOnAction(e -> {
+            for (int x = 2; x < con.BluePoints.get(2); x++) {
+//                if (x >= con.BluePoints.get(2)-1) {
+//                else{
+                con.BluePoints.set(x, con.BluePoints.get(x) + 1);
+                house.labels.get(x).setText(String.valueOf(con.BluePoints.get(x)));}
+
+            con.RedPoints.set(0, con.RedPoints.get(0) + 1);
+            con.BluePoints.set(1, 0);
+            house.labels.get(1).setText(String.valueOf(con.BluePoints.get(1)));
+        });*/
+    }
+
 
     public static void main(String[] args) { launch(args); }
 }
