@@ -1,4 +1,16 @@
-{
+
+import javafx.animation.AnimationTimer;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
+
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+
+public class Controller {
     boolean GameIsOver = false;
     boolean P1turn = true;
     ArrayList<Integer> Points = new ArrayList<>();
