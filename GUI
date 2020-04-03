@@ -1,0 +1,59 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+
+public class GUI extends Application {
+
+
+    Button Play = new Button();
+
+
+
+    @Override
+    public void start(Stage pStage) throws Exception {
+        Controller con = new Controller();
+        Houses house = new Houses();
+       // house.Points();
+
+        con.FillArray();
+
+
+        Pane pane = new Pane();
+        Scene scene = new Scene(pane, 700,350);
+
+
+        Play.setLayoutY(scene.getHeight()/2);
+        Play.setLayoutX(scene.getWidth()/2);
+        Play.setText("PLAY");
+
+
+      try{
+          pane.getChildren().addAll(house.CreateHouses());
+             pane.getChildren().addAll(house.SetLabels());
+             pane.getChildren().addAll(house.setButtons());
+             pane.getChildren().add(Play);
+
+            pStage.setTitle("Kalaha Game");
+            pStage.setScene(scene);
+            pStage.setResizable(false);
+            pStage.show();
+
+       }catch (Exception e){
+           System.out.println("Something went wrong");
+       }
+        Play.setOnAction(e->house.Points());
+        house.PickBlueHouse1.setOnAction(e->{
+            con.ToZero(0);
+            System.out.println(con.FillArray().get(0));
+            /*con.ToZero((Integer)con.FillArray().get(0));
+            con.increaseByOnePoint(house.BlueHouse1Value,1,(Integer)con.FillArray().get(1));*/
+        });
+
+    }
+
+
+    public static void main(String[] args) { launch(args); }
+}
