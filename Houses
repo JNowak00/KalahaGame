@@ -260,29 +260,11 @@ Buttons for picking
 
         return pickbuttons;
     }
-    public void Points() {
-       Controller con = new Controller();
-       try{ BlueHouse6Value.setText(String.valueOf(con.BluePoints().get(0)));
-           BlueHouse5Value.setText(String.valueOf(con.BluePoints().get(1)));
-        BlueHouse4Value.setText(String.valueOf(con.BluePoints().get(2)));
-        BlueHouse3Value.setText(String.valueOf(con.BluePoints().get(3)));
-        BlueHouse2Value.setText(String.valueOf(con.BluePoints().get(4)));
-        BlueHouse1Value.setText(String.valueOf(con.BluePoints().get(5)));
-        BlueBaseValue.setText(String.valueOf(con.BluePoints().get(6)));
-       /* RedHouse1Value.setText(String.valueOf(con.FillArray().get(7)));
-        RedHouse2Value.setText(String.valueOf(con.FillArray().get(8)));
-        RedHouse3Value.setText(String.valueOf(con.FillArray().get(9)));
-        RedHouse4Value.setText(String.valueOf(con.FillArray().get(10)));
-        RedHouse5Value.setText(String.valueOf(con.FillArray().get(11)));
-        RedHouse6Value.setText(String.valueOf(con.FillArray().get(12)));
-        RedBaseValue.setText(String.valueOf(con.FillArray().get(13)));*/
-        }
-         catch (Exception E){
-            System.out.println("smth");
-        }
+
         //BASES
         /*BlueBaseValue.setText(String.valueOf(con.FillArray().get(12)));
         RedBaseValue.setText(String.valueOf(con.FillArray().get(13)));
         */    }
 
-    }
+
+
