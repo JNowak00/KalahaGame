@@ -1,0 +1,400 @@
+{
+    Button Play = new Button();
+    @Override
+    public void start(Stage pStage) throws Exception {
+        Controller con = new Controller();
+        Houses house = new Houses();
+
+        con.Points();
+        Pane pane = new Pane();
+        Scene scene = new Scene(pane, 700, 350);
+        Play.setLayoutY(scene.getHeight() / 2);
+        Play.setLayoutX(scene.getWidth() / 2);
+        Play.setText("PLAY");
+        try {
+            pane.getChildren().addAll(house.CreateHouses());
+            pane.getChildren().addAll(house.SetLabels());
+            pane.getChildren().addAll(house.setButtons());
+            pane.getChildren().add(Play);
+            // house.PickBlueHouse1.setOnAction(e->{ con.increaseByOnePoint(house.BlueHouse1Value,0,values.get(0));});
+            pStage.setTitle("Kalaha Game");
+            pStage.setScene(scene);
+            pStage.setResizable(false);
+            pStage.show();
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong");
+        }
+            con.setTurn(true);
+            Play.setOnAction(e -> {
+                house.BlueHouse6Value.setText(String.valueOf(con.GetPoint(0)));
+                house.BlueHouse5Value.setText(String.valueOf(con.GetPoint(1)));
+                house.BlueHouse4Value.setText(String.valueOf(con.GetPoint(2)));
+                house.BlueHouse3Value.setText(String.valueOf(con.GetPoint(3)));
+                house.BlueHouse2Value.setText(String.valueOf(con.GetPoint(4)));
+                house.BlueHouse1Value.setText(String.valueOf(con.GetPoint(5)));
+                house.BlueBaseValue.setText(String.valueOf(con.GetPoint(6)));
+                house.RedHouse1Value.setText(String.valueOf(con.GetPoint(7)));
+                house.RedHouse2Value.setText(String.valueOf(con.GetPoint(8)));
+                house.RedHouse3Value.setText(String.valueOf(con.GetPoint(9)));
+                house.RedHouse4Value.setText(String.valueOf(con.GetPoint(10)));
+                house.RedHouse5Value.setText(String.valueOf(con.GetPoint(11)));
+                house.RedHouse6Value.setText(String.valueOf(con.GetPoint(12)));
+                house.RedBaseValue.setText(String.valueOf(con.GetPoint(13)));
+            });
+
+        /*
+        ACTIONS FOR BUTTONS
+         */
+            house.PickBlueHouse6.setOnAction(e -> {
+
+                int nrOfHouse = 0;
+                int nrofindex = 0;
+                int x = con.Points.get(0);
+                int x1 = con.Points.get(0);
+                if (con.getTurn()) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                }con.setTurn(false);
+            });
+            house.PickBlueHouse5.setOnAction(e -> {
+
+                int nrOfHouse = 1;
+                int nrofindex = 1;
+                int x = con.Points.get(1);
+                int x1 = con.Points.get(1);
+                if (con.getTurn()) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                }con.setTurn(false);
+            });
+            house.PickBlueHouse4.setOnAction(e -> {
+
+                int nrOfHouse = 2;
+                int nrofindex = 2;
+                int x = con.Points.get(2);
+                int x1 = con.Points.get(2);
+                if (con.getTurn()) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex <= con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                }con.setTurn(false);
+            });
+            house.PickBlueHouse3.setOnAction(e -> {
+
+                int nrOfHouse = 3;
+                int nrofindex = 3;
+                int x = con.Points.get(3);
+                int x1 = con.Points.get(3);
+                if (con.getTurn()) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                }con.setTurn(false);
+            });
+            house.PickBlueHouse2.setOnAction(e -> {
+
+                int nrOfHouse = 4;
+                int nrofindex = 4;
+                int x = con.Points.get(4);
+                int x1 = con.Points.get(4);
+                if (con.getTurn()) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                }con.setTurn(false);
+            });
+            house.PickBlueHouse1.setOnAction(e -> {
+
+                int nrOfHouse = 5;
+                int nrofindex = 5;
+                int x = con.Points.get(5);
+                int x1 = con.Points.get(5);
+                if (con.getTurn()) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                }con.setTurn(false);
+            });
+            house.PickRedHouse1.setOnAction(e -> {
+                con.setTurn(true);
+                int nrOfHouse = 7;
+                int nrofindex = 7;
+                int x = con.Points.get(7);
+                int x1 = con.Points.get(7);
+                if (con.getTurn() == false) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                }con.setTurn(true);
+            });
+            house.PickRedHouse2.setOnAction(e -> {
+
+                int nrOfHouse = 8;
+                int nrofindex = 8;
+                int x = con.Points.get(8);
+                int x1 = con.Points.get(8);
+                if (con.getTurn() == false) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                }con.setTurn(true);
+            });
+            house.PickRedHouse3.setOnAction(e -> {
+
+                int nrOfHouse = 9;
+                int nrofindex = 9;
+                int x = con.Points.get(9);
+                int x1 = con.Points.get(9);
+                if (con.getTurn() == false) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                }  con.setTurn(true);
+            });
+            house.PickRedHouse4.setOnAction(e -> {
+                int nrofindex = 10;
+                int nrOfHouse = 10;
+                int x = con.Points.get(10);
+                int x1 = con.Points.get(10);
+                if (con.getTurn() == false) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex <x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                    }con.setTurn(true);
+            });
+
+            house.PickRedHouse5.setOnAction(e -> {
+                int nrofindex = 11;
+                int nrOfHouse = 11;
+                int x = con.Points.get(11);
+                int x1 = con.Points.get(11);
+                if (con.getTurn() == false) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex < con.Points.size()) {
+
+                            con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                            house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex < x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show();
+                    }con.setTurn(true);
+            });
+            house.PickRedHouse6.setOnAction(e -> {
+
+                int nrofindex = 12;
+                int nrOfHouse = 12;
+                int x = con.Points.get(12);
+                int x1 = con.Points.get(12);
+                if (con.getTurn() == false) {
+                    for (int i = 0; i <= x1; i++) {
+                        if (nrofindex + 1 < con.Points.size()) {
+
+                            con.Points.set(nrofindex + 1, con.Points.get(nrofindex + 1) + 1);
+                            house.labels.get(nrofindex + 1).setText(String.valueOf(con.Points.get(nrofindex + 1)));
+                            nrofindex++;
+                            x--;
+                        } else {
+                            for (nrofindex = 0; nrofindex <x; nrofindex++) {
+                                con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                                house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                            }
+                        }
+                    }
+                    con.Points.set(nrOfHouse, 0);
+                    house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("You can't click that!");
+                    alert.show(); }
+                con.setTurn(true);});
+    con.GameOver();
+    }
+
+
+    public static void main(String[] args) { launch(args); }
+}
