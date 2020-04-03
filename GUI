@@ -1,4 +1,5 @@
 
+import com.sun.org.apache.xpath.internal.objects.XNumber;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -37,7 +38,7 @@ public class GUI extends Application {
             System.out.println("Something went wrong");
         }
 
-        Play.setOnAction(e ->{
+        Play.setOnAction(e -> {
             house.BlueHouse6Value.setText(String.valueOf(con.GetPoint(0)));
             house.BlueHouse5Value.setText(String.valueOf(con.GetPoint(1)));
             house.BlueHouse4Value.setText(String.valueOf(con.GetPoint(2)));
@@ -57,83 +58,303 @@ public class GUI extends Application {
         /*
         ACTIONS FOR BUTTONS
          */
-         house.PickBlueHouse6.setOnAction(e -> {
-            for(int i = 0; i<con.Points.get(0);i++){
-                con.Points.set(i, con.Points.get(i) + 1);
-                house.labels.get(i).setText(String.valueOf(con.Points.get(i)));}
-            con.setPoint(0,0);
-            house.BlueHouse6Value.setText(String.valueOf(con.Points.get(0)));
-                });
-                house.PickBlueHouse5.setOnAction(e ->{
-                    for(int i = 1; i<con.Points.get(1)+1;i++){
-                        con.Points.set(i+1, con.Points.get(i+1) + 1);
-                        house.labels.get(i+1).setText(String.valueOf(con.Points.get(i+1)));}
-                            con.setPoint(1,0);
-                            house.BlueHouse5Value.setText(String.valueOf(con.Points.get(1)));
-                });
-                house.PickBlueHouse4.setOnAction(e->{
-                    for(int i = 0; i<con.Points.get(2);i++){
-                        con.Points.set(i+2, con.Points.get(i+2) + 1);
-                        house.labels.get(i+2).setText(String.valueOf(con.Points.get(i+2))); }
-                    con.setPoint(2,0);
-                    house.BlueHouse4Value.setText(String.valueOf(con.Points.get(2)));
+        house.PickBlueHouse6.setOnAction(e -> {
+            int nrOfHouse = 0;
+            int nrofindex = 0;
+            int x = con.Points.get(0);
+            int x1 = con.Points.get(0);
+            for (int i = 0; i <= x1; i++) {
+                if(nrofindex<con.Points.size()){
 
-                });
-        house.PickBlueHouse3.setOnAction(e->{
-            System.out.println(con.Points.get(3));
-            for(int i = 0; i<con.Points.get(3);i++){
-                if(i<=con.Points.size()){
-                    con.Points.set(i+3, con.Points.get(i+3) + 1);
-                    house.labels.get(i+3).setText(String.valueOf(con.Points.get(i+3)));}
-                else{
-                    for(int j = 0;j<con.Points.get(3)-i+1;j++){
-                        con.Points.set(j,con.Points.get(j)+1);
-                        house.labels.get(j).setText(String.valueOf(con.Points.get(j)));
-                    }}}
-            con.setPoint(3,0);
-            house.BlueHouse3Value.setText(String.valueOf(con.Points.get(3)));
-
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<=x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
         });
-        house.PickBlueHouse2.setOnAction(e->{
-            System.out.println(con.Points.get(4));
-            for(int i = 0; i<con.Points.get(4);i++){
-            if(i+5<=con.Points.size()){
-                con.Points.set(i+4, con.Points.get(i+4) + 1);
-                house.labels.get(i+4).setText(String.valueOf(con.Points.get(i+4)));}
-            else{
-                for(int j = 0;j<con.Points.get(4)-i+1;j++){
-                    con.Points.set(j,con.Points.get(j)+1);
-                    house.labels.get(j).setText(String.valueOf(con.Points.get(j)));
+        house.PickBlueHouse5.setOnAction(e -> {
+            int nrOfHouse = 1;
+            int nrofindex =1;
+            int x = con.Points.get(1);
+            int x1 = con.Points.get(1);
+            for (int i = 0; i <= x1; i++) {
+                if(nrofindex<con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<=x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+        });
+        house.PickBlueHouse4.setOnAction(e -> {
+            int nrOfHouse = 2;
+            int nrofindex = 2;
+            int x = con.Points.get(2);
+            int x1 = con.Points.get(2);
+            for (int i = 0; i <= x1; i++) {
+                if(nrofindex<con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+        });
+        house.PickBlueHouse3.setOnAction(e -> {
+            int nrOfHouse = 3;
+            int nrofindex = 3;
+            int x = con.Points.get(3);
+            int x1 = con.Points.get(3);
+            for (int i = 0; i <= x1; i++) {
+                if(nrofindex<con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<=x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+        });
+        house.PickBlueHouse2.setOnAction(e -> {
+            int nrOfHouse = 4;
+            int nrofindex = 4;
+            int x = con.Points.get(4);
+            int x1 = con.Points.get(4);
+            for (int i = 0; i <= x1; i++) {
+                if(nrofindex<con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<=x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+        });
+            /*System.out.println(con.Points.get(4));
+            for (int i = 0; i < con.Points.get(4); i++) {
+                if (i + 4 < con.Points.size()) {
+                    con.Points.set(i + 4, con.Points.get(i + 4) + 1);
+                    house.labels.get(i + 4).setText(String.valueOf(con.Points.get(i + 4)));
+                } else {
+                    for (int j = 0; j < con.Points.get(4) - i; j++) {
+                        con.Points.set(j, con.Points.get(j) + 1);
+                        house.labels.get(j).setText(String.valueOf(con.Points.get(j)));
+                    }
                 }
-            }}
-                con.setPoint(4,0);
+            }
+            con.setPoint(4, 0);
             house.BlueHouse2Value.setText(String.valueOf(con.Points.get(4)));
             System.out.println(con.Points.get(4));
+        });*/
+        house.PickBlueHouse1.setOnAction(e -> {
+            int nrOfHouse = 5;
+            int nrofindex = 5;
+            int x = con.Points.get(5);
+            int x1 = con.Points.get(5);
+                for (int i = 0; i < x1; i++) {
+                    if(nrofindex<con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                        nrofindex++;
+                        x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<x; nrofindex++) {
+                    con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+                con.Points.set(nrOfHouse,0);
+                house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
         });
-        house.PickBlueHouse1.setOnAction(e->{
-            System.out.println(con.Points.get(5));
+        house.PickRedHouse1.setOnAction(e->{
+            int nrOfHouse = 7;
+            int nrofindex = 7;
+            int x = con.Points.get(7);
+            int x1 = con.Points.get(7);
+            for (int i = 0; i <= x1; i++) {
+                if(nrofindex<con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<=x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+        });
+        house.PickRedHouse2.setOnAction(e->{
+            int nrOfHouse = 8;
+            int nrofindex = 8;
+            int x = con.Points.get(8);
+            int x1 = con.Points.get(8);
+            for (int i = 0; i <=x1; i++) {
+                if(nrofindex<con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<=x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+        });
+        house.PickRedHouse3.setOnAction(e->{
+            int nrOfHouse = 9;
+            int nrofindex = 9;
+            int x = con.Points.get(9);
+            int x1 = con.Points.get(9);
+            for (int i = 0; i < x1; i++) {
+                if(nrofindex<con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));
+        });
+        house.PickRedHouse4.setOnAction(e->{
+            int nrofindex = 10;
+            int nrOfHouse = 10;
+            int x = con.Points.get(10);
+            int x1 = con.Points.get(10);
+            for (int i = 0; i < x1; i++) {
+                if(nrofindex<=con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));});
+
+        house.PickRedHouse5.setOnAction(e->{
+            int nrofindex = 11;
+            int nrOfHouse = 11;
+            int x = con.Points.get(11);
+            int x1 = con.Points.get(11);
+            for (int i = 0; i < x1; i++) {
+                if(nrofindex<=con.Points.size()){
+
+                    con.Points.set(nrofindex, con.Points.get(nrofindex) + 1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));
+                    nrofindex++;
+                    x--;
+                }   else{
+                    for (nrofindex = 0; nrofindex<x; nrofindex++) {
+                        con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                        house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+                }}
+            con.Points.set(nrOfHouse,0);
+            house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));});
+        house.PickRedHouse6.setOnAction(e->{
+            int nrofindex = 12;
+        int nrOfHouse = 12;
+        int x = con.Points.get(12);
+        int x1 = con.Points.get(12);
+        for (int i = 0; i < x1; i++) {
+            if(nrofindex+1<=con.Points.size()){
+
+                con.Points.set(nrofindex+1, con.Points.get(nrofindex+1) + 1);
+                house.labels.get(nrofindex+1).setText(String.valueOf(con.Points.get(nrofindex+1)));
+                nrofindex++;
+                x--;
+            }   else{
+                for (nrofindex = 0; nrofindex<x; nrofindex++) {
+                    con.Points.set(nrofindex, con.Points.get(nrofindex)+1);
+                    house.labels.get(nrofindex).setText(String.valueOf(con.Points.get(nrofindex)));}
+            }}
+        con.Points.set(nrOfHouse,0);
+        house.labels.get(nrOfHouse).setText(String.valueOf(con.Points.get(nrOfHouse)));});
+
+
+
+
+
+
+        }
+
+
+
+
+      /*      for(int i = 0; i<con.Points.get(5);i++) {
+                if (i+5 < con.Points.size()) {
+                    con.Points.set(i + 5, con.Points.get(i) + 1);
+                    house.labels.get(i + 5).setText(String.valueOf(con.Points.get(i + 5)));
+                } else {
+                    for (int j = 0; j < con.Points.get(5)-i; j++) {
+                        con.Points.set(j, con.Points.get(j) + 1);
+                        house.labels.get(j).setText(String.valueOf(con.Points.get(j))); }}}
+
+            con.setPoint(5,0);
+            house.BlueHouse1Value.setText(String.valueOf(con.Points.get(5)));
+            */
+     //   });
+
+
+
+
+
+
+
+   /* System.out.println(con.Points.get(5));
+            int x = con.Points.size()-con.Points.get(5);
             for(int i = 1; i<con.Points.get(5);i++){
-                if(i+5<=con.Points.size()){
+                if(i+con.Points.get(5)<con.Points.size()){
                 con.Points.set(i+5, con.Points.get(i+5) + 1);
                 house.labels.get(i+5).setText(String.valueOf(con.Points.get(i+5)));}
                else{
-                   for(int j = 0;j<con.Points.get(5)-i+1;j++){
+                   for(int j = 0;j<con.Points.get(5)-i;j++){
                        con.Points.set(j,con.Points.get(j)+1);
                        house.labels.get(j).setText(String.valueOf(con.Points.get(j)));
                        }
-                   }}
-            con.setPoint(5,0);
-            house.BlueHouse1Value.setText(String.valueOf(con.Points.get(5)));
-            System.out.println(con.Points.get(4));
-        });
-
-
-
-
-
-
-
-
+                   }}*/
 
             //for (int x = 0; x < con.Points.get(0); x++) {
             /* con.BluePoints.set(x + 1, con.BluePoints.get(x + 1) + 1);
@@ -152,7 +373,6 @@ public class GUI extends Application {
             con.BluePoints.set(1, 0);
             house.labels.get(1).setText(String.valueOf(con.BluePoints.get(1)));
         });*/
-    }
 
 
     public static void main(String[] args) { launch(args); }
