@@ -1,0 +1,53 @@
+{
+    boolean GameIsOver = false;
+    boolean P1turn = true;
+    ArrayList<Integer> Points = new ArrayList<>();
+
+        public List Points(){
+            //Blue Houses
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            //Blue BASE
+            Points.add(0);
+            //Red Houses
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            //RED BASE
+            Points.add(0);
+        return Points;
+        }
+        public int GetPoint(int index){
+
+            return Points.get(index);
+        }
+        public boolean setTurn(boolean turn){
+            P1turn = turn;
+            return P1turn;
+        }
+        public boolean getTurn(){
+            return P1turn;
+        }
+        public void GameOver(){
+           if(Points.get(0)==0&&Points.get(1)==0&&Points.get(2)==0&&Points.get(3)==0&&Points.get(4)==0&&Points.get(5)==0||Points.get(7)==0&&Points.get(8)==0&&Points.get(9)==0&&Points.get(10)==0&&Points.get(1)==11){
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               if(Points.get(7)==0&&Points.get(8)==0&&Points.get(9)==0&&Points.get(10)==0&&Points.get(1)==11)
+               alert.setHeaderText("PLAYER RED WIN!");
+               else{
+                   alert.setHeaderText("PLAYER BLUE WON");
+               }
+           }
+           else{
+               GameIsOver = false;
+           }
+
+        }
+
+    }
