@@ -1,0 +1,264 @@
+import javafx.animation.AnimationTimer;
+        import javafx.scene.Node;
+        import javafx.scene.control.Button;
+        import javafx.scene.control.Label;
+        import javafx.scene.paint.Paint;
+        import javafx.scene.shape.Rectangle;
+        import javafx.scene.text.Font;
+
+        import java.util.LinkedList;
+        import java.util.List;
+
+public class Houses {
+    public List<Rectangle> houses = new LinkedList<>();
+    public List<Label> labels = new LinkedList<>();
+
+
+    Rectangle blue_house1 = new Rectangle(150, 30, 50, 50);
+    Rectangle blue_house2 = new Rectangle(225, 30, 50, 50);
+    Rectangle blue_house3 = new Rectangle(300, 30, 50, 50);
+    Rectangle blue_house4 = new Rectangle(375, 30, 50, 50);
+    Rectangle blue_house5 = new Rectangle(450, 30, 50, 50);
+    Rectangle blue_house6 = new Rectangle(525, 30, 50, 50);
+    Rectangle Blue_Base = new Rectangle(35, 50, 50, 250);
+    Rectangle red_house1 = new Rectangle(150, 275, 50, 50);
+    Rectangle red_house2 = new Rectangle(225, 275, 50, 50);
+    Rectangle red_house3 = new Rectangle(300, 275, 50, 50);
+    Rectangle red_house4 = new Rectangle(375, 275, 50, 50);
+    Rectangle red_house5 = new Rectangle(450, 275, 50, 50);
+    Rectangle red_house6 = new Rectangle(525, 275, 50, 50);
+    Rectangle Red_Base = new Rectangle(645, 50, 50, 250);
+
+
+    // LABELS FOR SHOWING THE AMOUNT OF THE ROCKS IN THE RECTANGLE
+
+    Label BlueHouse1Value = new Label();
+    Label BlueHouse2Value = new Label();
+    Label BlueHouse3Value = new Label();
+    Label BlueHouse4Value = new Label();
+    Label BlueHouse5Value = new Label();
+    Label BlueHouse6Value = new Label();
+    Label BlueBaseValue = new Label();
+    Label RedHouse1Value = new Label();
+    Label RedHouse2Value = new Label();
+    Label RedHouse3Value = new Label();
+    Label RedHouse4Value = new Label();
+    Label RedHouse5Value = new Label();
+    Label RedHouse6Value = new Label();
+    Label RedBaseValue = new Label();
+    /*
+    Buttons for picking
+    */
+    Button PickBlueHouse1 = new Button("Pick");
+    Button PickBlueHouse2 = new Button("Pick");
+    Button PickBlueHouse3 = new Button("Pick");
+    Button PickBlueHouse4 = new Button("Pick");
+    Button PickBlueHouse5 = new Button("Pick");
+    Button PickBlueHouse6 = new Button("Pick");
+    Button PickRedHouse1 = new Button("Pick");
+    Button PickRedHouse2 = new Button("Pick");
+    Button PickRedHouse3 = new Button("Pick");
+    Button PickRedHouse4 = new Button("Pick");
+    Button PickRedHouse5 = new Button("Pick");
+    Button PickRedHouse6 = new Button("Pick");
+
+    public List CreateHouses() {
+       /*
+        Adding Rectangles to LinkedList
+        */
+        houses.add(blue_house6);
+        houses.add(blue_house5);
+        houses.add(blue_house4);
+        houses.add(blue_house3);
+        houses.add(blue_house2);
+        houses.add(blue_house1);
+        houses.add(Blue_Base);
+        houses.add(red_house1);
+        houses.add(red_house2);
+        houses.add(red_house3);
+        houses.add(red_house4);
+        houses.add(red_house5);
+        houses.add(red_house6);
+        houses.add(Red_Base);
+        /*
+
+         * */
+
+        blue_house1.setFill(Paint.valueOf("Lightblue"));
+        blue_house2.setFill(Paint.valueOf("Lightblue"));
+        blue_house3.setFill(Paint.valueOf("Lightblue"));
+        blue_house4.setFill(Paint.valueOf("Lightblue"));
+        blue_house5.setFill(Paint.valueOf("Lightblue"));
+        blue_house6.setFill(Paint.valueOf("Lightblue"));
+        Blue_Base.setFill(Paint.valueOf("Lightblue"));
+
+        red_house1.setFill(Paint.valueOf("RED"));
+        red_house2.setFill(Paint.valueOf("RED"));
+        red_house3.setFill(Paint.valueOf("RED"));
+        red_house4.setFill(Paint.valueOf("RED"));
+        red_house5.setFill(Paint.valueOf("RED"));
+        red_house6.setFill(Paint.valueOf("RED"));
+        Red_Base.setFill(Paint.valueOf("RED"));
+        return houses;
+    }
+
+    /*
+    Settings for the Labels(Points)
+    */
+    public List SetLabels() {
+        labels.add(BlueHouse6Value);
+        labels.add(BlueHouse5Value);
+        labels.add(BlueHouse4Value);
+        labels.add(BlueHouse3Value);
+        labels.add(BlueHouse2Value);
+        labels.add(BlueHouse1Value);
+        labels.add(BlueBaseValue);
+        labels.add(RedHouse1Value);
+        labels.add(RedHouse2Value);
+        labels.add(RedHouse3Value);
+        labels.add(RedHouse4Value);
+        labels.add(RedHouse5Value);
+        labels.add(RedHouse6Value);
+        labels.add(RedBaseValue);
+
+       /*
+        Starting value to String.
+        */
+
+         /*
+                Setting for the Blue House Labels.
+            */
+        BlueHouse1Value.setLayoutX(blue_house1.getX() + 20);
+        BlueHouse1Value.setLayoutY(blue_house1.getY() + 10);
+        BlueHouse1Value.setFont(Font.font(20));
+
+        BlueHouse2Value.setLayoutX(blue_house2.getX() + 20);
+        BlueHouse2Value.setLayoutY(blue_house2.getY() + 10);
+
+        BlueHouse2Value.setFont(Font.font(20));
+
+        BlueHouse3Value.setLayoutX(blue_house3.getX() + 20);
+        BlueHouse3Value.setLayoutY(blue_house3.getY() + 10);
+
+        BlueHouse3Value.setFont(Font.font(20));
+
+        BlueHouse4Value.setLayoutX(blue_house4.getX() + 20);
+        BlueHouse4Value.setLayoutY(blue_house4.getY() + 10);
+
+        BlueHouse4Value.setFont(Font.font(20));
+
+        BlueHouse5Value.setLayoutX(blue_house5.getX() + 20);
+        BlueHouse5Value.setLayoutY(blue_house5.getY() + 10);
+        //
+        BlueHouse5Value.setFont(Font.font(20));
+
+        BlueHouse6Value.setLayoutX(blue_house6.getX() + 20);
+        BlueHouse6Value.setLayoutY(blue_house6.getY() + 10);
+        //
+        BlueHouse6Value.setFont(Font.font(20));
+
+        BlueBaseValue.setLayoutX(Blue_Base.getX() + 20);
+        BlueBaseValue.setLayoutY(Blue_Base.getY() + 10);
+        //
+        BlueBaseValue.setFont(Font.font(20));
+
+        /*
+        Settings for Red House Labels.
+         */
+
+        RedHouse1Value.setLayoutX(red_house1.getX() + 20);
+        RedHouse1Value.setLayoutY(red_house1.getY() + 10);
+        //
+        RedHouse1Value.setFont(Font.font(20));
+
+        RedHouse2Value.setLayoutX(red_house2.getX() + 20);
+        RedHouse2Value.setLayoutY(red_house2.getY() + 10);
+        //
+        RedHouse2Value.setFont(Font.font(20));
+
+        RedHouse3Value.setLayoutX(red_house3.getX() + 20);
+        RedHouse3Value.setLayoutY(red_house3.getY() + 10);
+        //
+        RedHouse3Value.setFont(Font.font(20));
+
+        RedHouse4Value.setLayoutX(red_house4.getX() + 20);
+        RedHouse4Value.setLayoutY(red_house4.getY() + 10);
+        //
+        RedHouse4Value.setFont(Font.font(20));
+
+        RedHouse5Value.setLayoutX(red_house5.getX() + 20);
+        RedHouse5Value.setLayoutY(red_house5.getY() + 10);
+
+        RedHouse5Value.setFont(Font.font(20));
+
+        RedHouse6Value.setLayoutX(red_house6.getX() + 20);
+        RedHouse6Value.setLayoutY(red_house6.getY() + 10);
+
+        RedHouse6Value.setFont(Font.font(20));
+
+        RedBaseValue.setLayoutX(Red_Base.getX() + 20);
+        RedBaseValue.setLayoutY(Red_Base.getY() + 10);
+
+        RedBaseValue.setFont(Font.font(20));
+
+        return labels;
+    }
+
+    public List setButtons() {
+        List<Button> pickbuttons = new LinkedList<>();
+        pickbuttons.add(PickBlueHouse1);
+        pickbuttons.add(PickBlueHouse2);
+        pickbuttons.add(PickBlueHouse3);
+        pickbuttons.add(PickBlueHouse4);
+        pickbuttons.add(PickBlueHouse5);
+        pickbuttons.add(PickBlueHouse6);
+        //Picking red buttons.
+        pickbuttons.add(PickRedHouse1);
+        pickbuttons.add(PickRedHouse2);
+        pickbuttons.add(PickRedHouse3);
+        pickbuttons.add(PickRedHouse4);
+        pickbuttons.add(PickRedHouse5);
+        pickbuttons.add(PickRedHouse6);
+
+        /*
+        Placement for buttons
+         */
+        PickBlueHouse1.setLayoutX(blue_house1.getX() + 5);
+        PickBlueHouse1.setLayoutY(blue_house1.getY() + 60);
+
+        PickBlueHouse2.setLayoutX(blue_house2.getX() + 5);
+        PickBlueHouse2.setLayoutY(blue_house2.getY() + 60);
+
+        PickBlueHouse3.setLayoutX(blue_house3.getX() + 5);
+        PickBlueHouse3.setLayoutY(blue_house3.getY() + 60);
+
+        PickBlueHouse4.setLayoutX(blue_house4.getX() + 5);
+        PickBlueHouse4.setLayoutY(blue_house4.getY() + 60);
+
+        PickBlueHouse5.setLayoutX(blue_house5.getX() + 5);
+        PickBlueHouse5.setLayoutY(blue_house5.getY() + 60);
+
+        PickBlueHouse6.setLayoutX(blue_house6.getX() + 5);
+        PickBlueHouse6.setLayoutY(blue_house6.getY() + 60);
+
+        PickRedHouse1.setLayoutX(red_house1.getX() + 5);
+        PickRedHouse1.setLayoutY(red_house1.getY() + 60);
+
+        PickRedHouse2.setLayoutX(red_house2.getX() + 5);
+        PickRedHouse2.setLayoutY(red_house2.getY() + 60);
+
+        PickRedHouse3.setLayoutX(red_house3.getX() + 5);
+        PickRedHouse3.setLayoutY(red_house3.getY() + 60);
+
+        PickRedHouse4.setLayoutX(red_house4.getX() + 5);
+        PickRedHouse4.setLayoutY(red_house4.getY() + 60);
+
+        PickRedHouse5.setLayoutX(red_house5.getX() + 5);
+        PickRedHouse5.setLayoutY(red_house5.getY() + 60);
+
+        PickRedHouse6.setLayoutX(red_house6.getX() + 5);
+        PickRedHouse6.setLayoutY(red_house6.getY() + 60);
+        
+        return pickbuttons;
+    }
+}
