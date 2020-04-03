@@ -5,27 +5,69 @@ import javafx.scene.shape.Rectangle;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class Controller {
-    Houses houses = new Houses();
     boolean GameIsOver = false;
     boolean P1turn = true;
     boolean MoveInProgres = false;
     boolean opposite_empty = false;
-    ArrayList<Integer> BluePoints = new ArrayList<>(7);
-    ArrayList<Integer> RedPoints = new ArrayList<>(7);
+   /* ArrayList<Integer> BluePoints = new ArrayList<>();
+    ArrayList<Integer> RedPoints = new ArrayList<>();*/
+    ArrayList<Integer> Points = new ArrayList<>();
 
-    public ArrayList BluePoints() {
-        BluePoints.add(0,6);
-        BluePoints.add(1,6);
-        BluePoints.add(2,6);
-        BluePoints.add(3,6);
-        BluePoints.add(4,6);
-        BluePoints.add(5,6);
-        BluePoints.add(6,0);
+  /*  public ArrayList BluePoints() {
+        BluePoints.add(6);
+        BluePoints.add(6);
+        BluePoints.add(6);
+        BluePoints.add(6);
+        BluePoints.add(6);
+        BluePoints.add(6);
+        BluePoints.add(0);
         //base
         return BluePoints;}
+
+        public ArrayList RedPoints(){
+            RedPoints.add(6);
+            RedPoints.add(6);
+            RedPoints.add(6);
+            RedPoints.add(6);
+            RedPoints.add(6);
+            RedPoints.add(6);
+            RedPoints.add(0);
+
+
+            return  RedPoints;
+        }*/
+        public List Points(){
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(0);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(6);
+            Points.add(0);
+        return Points;
+        }
+        public int GetPoint(int index){
+
+            return Points.get(index);
+        }
+        public int setPoint(int index, int point){
+            return Points.set(index,point);
+        }
+
+
+    }
 
       /*  public ArrayList RedPoints() {
 
@@ -37,9 +79,4 @@ public class Controller {
 */
 
 
-    void increaseByOnePoint(Label label, int index, int point){
 
-       // values.set(index,point+1);
-       // label.setText(String.valueOf(values.get(index)));
-    }
-}
