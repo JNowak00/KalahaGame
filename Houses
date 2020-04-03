@@ -66,12 +66,12 @@ Buttons for picking
        /*
         Adding Rectangles to LinkedList
         */
-        houses.add(blue_house1);
-        houses.add(blue_house2);
-        houses.add(blue_house3);
-        houses.add(blue_house4);
-        houses.add(blue_house5);
         houses.add(blue_house6);
+        houses.add(blue_house5);
+        houses.add(blue_house4);
+        houses.add(blue_house3);
+        houses.add(blue_house2);
+        houses.add(blue_house1);
         houses.add(Blue_Base);
         houses.add(red_house1);
         houses.add(red_house2);
@@ -105,20 +105,21 @@ Buttons for picking
     Settings for the Labels(Points)
     */
     public List SetLabels(){
-        labels.add(BlueHouse1Value);
-        labels.add(BlueHouse2Value);
-        labels.add(BlueHouse3Value);
-        labels.add(BlueHouse4Value);
-        labels.add(BlueHouse5Value);
         labels.add(BlueHouse6Value);
+        labels.add(BlueHouse5Value);
+        labels.add(BlueHouse4Value);
+        labels.add(BlueHouse3Value);
+        labels.add(BlueHouse2Value);
+        labels.add(BlueHouse1Value);
         labels.add(BlueBaseValue);
-        labels.add(RedBaseValue);
         labels.add(RedHouse1Value);
         labels.add(RedHouse2Value);
         labels.add(RedHouse3Value);
         labels.add(RedHouse4Value);
         labels.add(RedHouse5Value);
         labels.add(RedHouse6Value);
+        labels.add(RedBaseValue);
+
        /*
         Starting value to String.
         */
@@ -255,26 +256,33 @@ Buttons for picking
 
         PickRedHouse6.setLayoutX(red_house6.getX()+5);
         PickRedHouse6.setLayoutY(red_house6.getY()+60);
+        Controller con = new Controller();
 
         return pickbuttons;
     }
     public void Points() {
-        Controller con = new Controller();
-        BlueHouse1Value.setText(String.valueOf(con.FillArray().get(0)));
-        BlueHouse2Value.setText(String.valueOf(con.FillArray().get(1)));
-        BlueHouse3Value.setText(String.valueOf(con.FillArray().get(2)));
-        BlueHouse4Value.setText(String.valueOf(con.FillArray().get(3)));
-        BlueHouse5Value.setText(String.valueOf(con.FillArray().get(4)));
-        BlueHouse6Value.setText(String.valueOf(con.FillArray().get(5)));
-        RedHouse1Value.setText(String.valueOf(con.FillArray().get(6)));
-        RedHouse2Value.setText(String.valueOf(con.FillArray().get(7)));
-        RedHouse3Value.setText(String.valueOf(con.FillArray().get(8)));
-        RedHouse4Value.setText(String.valueOf(con.FillArray().get(9)));
-        RedHouse5Value.setText(String.valueOf(con.FillArray().get(10)));
-         RedHouse6Value.setText(String.valueOf(con.FillArray().get(11)));
+       Controller con = new Controller();
+       try{ BlueHouse6Value.setText(String.valueOf(con.BluePoints().get(0)));
+           BlueHouse5Value.setText(String.valueOf(con.BluePoints().get(1)));
+        BlueHouse4Value.setText(String.valueOf(con.BluePoints().get(2)));
+        BlueHouse3Value.setText(String.valueOf(con.BluePoints().get(3)));
+        BlueHouse2Value.setText(String.valueOf(con.BluePoints().get(4)));
+        BlueHouse1Value.setText(String.valueOf(con.BluePoints().get(5)));
+        BlueBaseValue.setText(String.valueOf(con.BluePoints().get(6)));
+       /* RedHouse1Value.setText(String.valueOf(con.FillArray().get(7)));
+        RedHouse2Value.setText(String.valueOf(con.FillArray().get(8)));
+        RedHouse3Value.setText(String.valueOf(con.FillArray().get(9)));
+        RedHouse4Value.setText(String.valueOf(con.FillArray().get(10)));
+        RedHouse5Value.setText(String.valueOf(con.FillArray().get(11)));
+        RedHouse6Value.setText(String.valueOf(con.FillArray().get(12)));
+        RedBaseValue.setText(String.valueOf(con.FillArray().get(13)));*/
+        }
+         catch (Exception E){
+            System.out.println("smth");
+        }
         //BASES
-        BlueBaseValue.setText(String.valueOf(con.FillArray().get(12)));
+        /*BlueBaseValue.setText(String.valueOf(con.FillArray().get(12)));
         RedBaseValue.setText(String.valueOf(con.FillArray().get(13)));
-            }
+        */    }
 
     }
